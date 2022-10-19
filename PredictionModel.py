@@ -91,7 +91,7 @@ current_batch = first_eval_batch.reshape((1, length, n_features))
 for i in range(len(test)):
     current_pred = model.predict(current_batch)[0]
     test_predictions.append(current_pred)
-    current_batch = numpy.append(current_batch[:,2:,:], [[current_pred]], axis = 1)
+    test_predictions.append(current_batch)
 
 true_predictions = scaler.inverse_transform(test_predictions)
 test['Predictions'] = true_predictions
